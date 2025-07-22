@@ -16,7 +16,7 @@ obsoletes:
 keyword:
  - x.509
  - SubjectAltName
- - OtherName
+ - otherName
  - NFS
  - SunRPC
 
@@ -45,7 +45,7 @@ venue:
 
 --- abstract
 
-This document extends RPC-with-TLS, as described in {{RFC9289}}, so
+This document extends RPC-with-TLS, as described in {{!RFC9289}}, so
 that a client's x.509 certificate may carry instructions to the RPC
 server to execute all RPC transactions from that client as a single
 user identity.
@@ -56,26 +56,84 @@ user identity.
 
 ## Background
 
+The Remote Procedure Call version 2 protocol (RPC, for short) has been
+a Proposed Standard for three decades (see {{?RFC5531}} and its
+antecedents).
+Several important upper layer protocols, such as the family of Network
+File System protocols (most recently described in {{?RFC8881}} are based
+on RPC.
+
+In 2022, the IETF published {{!RFC9289}}, which specifies a mechanism
+by which RPC transactions can be cryptographically protected during
+transit. This protection includes maintaining confidentiality and
+integrity, and the authentication of the communicating peers.
+
 ## Problem Statement
+
+{{Section 4.2 of RFC9289}} states that:
+
+> RPC user authentication is not affected by
+> the use of transport layer security.  When a client presents a TLS
+> peer identity to an RPC server, the protocol extension described in
+> the current document provides no way for the server to know whether
+> that identity represents one RPC user on that client or is shared
+> amongst many RPC users.  Therefore, a server implementation cannot
+> utilize the remote TLS peer identity to authenticate RPC users.
+
+{:aside}
+> Insert use cases or user stories here.
+
+When an RPC server replaces incoming RPC user identities with a single
+user identity, for brevity we will refer to this as "identity squashing".
 
 ## Summary of Proposed Solution
 
+In the interest of enabling the independent creation of interoperating
+implementations of RPC identity squashing, this document proposes the
+use of the x.509 SubjectAltName otherName field to carry a RPC user
+identity.
+For these user squashing instructions,
+this document establishes a fixed object identifier
+carried in the "type-id" part of the otherName field,
+and specifies the format of the "value" part of the otherName
+field when "type-id" carries the new object identifier.
+The document also provides normative guidance on how the "value"
+is to be interpreted by RPC servers.
+
 ## Open Questions
+
+- Should this be an NFS-only feature, or should it be an RPC-layer
+  feature?
+
+- Standardizing a fixed OID is necessary for interoperability, but
+  are we required to allocate that OID from a particular arc?
 
 # Requirements Language
 
 {::boilerplate bcp14-tagged}
 
-# Requirement for OtherName OID
+# x.509 Certificate SubjectAltName Field
 
-Summary of guidelines regarding use of x.509 SubjectAltName field.
-Does this proposal follow those guidelines?
+As specified in {{Section 4.2.1.6 of !RFC5280}}:
 
-# Format of New OtherName Blob
+> The subjectAltName MAY carry additional name types through the use of
+> the otherName field.  The format and semantics of the name are
+> indicated through the OBJECT IDENTIFIER in the type-id field.  The
+> name itself is conveyed as value field in otherName.
 
-Follow recommendations of draft-ietf-nfsv4-internationalization-latest
-to form an internationalized "user@domain" string similar to NFSv4 ID
-map strings.
+## Requirement for otherName OID
+
+{:aside}
+> Summary of guidelines regarding use of x.509 SubjectAltName field.
+  Are there any requirements, and does this proposal follow those
+  requirements and guidelines?
+
+## Format of New otherName Blob
+
+{:aside}
+> Follow recommendations of draft-ietf-nfsv4-internationalization-latest
+  to form an internationalized "user@domain" string similar to NFSv4 ID
+  map strings.
 
 # Implementation Status
 
@@ -99,31 +157,43 @@ exist.
 
 ## FreeBSD NFS Server and Client
 
-Organization: FreeBSD
+Organization:
+: FreeBSD
 
-URL:       <https://www.freebsd.org>
+URL:
+: <https://www.freebsd.org>
 
-Maturity:  Complete.
+Maturity:
+: Complete.
 
-Coverage:  All procedures are implemented.
+Coverage:
+: The proposed mechanism has been implemented in its
+  entirety using an OID from the FreeBSD arc.
 
-Licensing: BSD 3-clause
+Licensing:
+: BSD 3-clause
 
 Implementation experience:
+: None to report
 
 # Security Considerations
 
 # IANA Considerations
 
-Request for allocation of a SubjectAltName : OtherName object identifier
+{:aside}
+> Insert request for allocation of a SubjectAltName : otherName object identifier
 
 --- back
 
 # Acknowledgments
 {:numbered="false"}
 
-The authors are grateful to Bill Baker, Jeff Layton, Greg Marsden,
-and Martin Thomson for their input and support.
+The authors are grateful to
+Jeff Layton,
+Greg Marsden,
+and
+Martin Thomson
+for their input and support.
 
 Special thanks to
 Area Director
