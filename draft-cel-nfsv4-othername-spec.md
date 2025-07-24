@@ -80,11 +80,24 @@ integrity, and the authentication of the communicating peers.
 > amongst many RPC users.  Therefore, a server implementation cannot
 > utilize the remote TLS peer identity to authenticate RPC users.
 
-{:aside}
-> Insert use cases or user stories here.
+Mobile devices such as laptops are typically used by a single user and
+do not have a fixed, well known IP host address or fully qualified DNS name.
+The lack of a well known fixed IP host address or fully qualified DNS name
+weakens the verification checks that may be done on the client's X.509
+certificate by the server.  As such, this extension allows the client to be
+restricted to a single user entity on the server, limiting the scope of risk
+associated with allowing access to the server.
+
+When a service is running in a dedicated VM or container, it often
+runs as a single assigned user identity. Handling this user identity
+using Kerberos is problematic, since Kerberos TGTs typically expire
+in a matter of hours and the service is typically a long running task.
+This extension allows the client to specify the single assigned user
+identity to the server in a manner that will not expire for a significant
+period of time.
 
 When an RPC server replaces incoming RPC user identities with a single
-user identity, for brevity we will refer to this as "identity squashing".
+user identity, for brevity we refer to this as "identity squashing".
 
 ## Summary of Proposed Solution
 
