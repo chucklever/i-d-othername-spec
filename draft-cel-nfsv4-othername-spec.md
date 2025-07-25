@@ -35,6 +35,14 @@ author:
     country: United States of America
     email: chuck.lever@oracle.com
 
+informative:
+  SSID:
+    target: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-identifiers
+    title: Security Identifiers
+    author:
+      org: Microsoft
+    ann: Replace this with a reference to an MS standards doc
+
 venue:
   group: nfsv4
   type: Working Group
@@ -147,6 +155,18 @@ As specified in {{Section 4.2.1.6 of !RFC5280}}:
 > Follow recommendations of draft-ietf-nfsv4-internationalization-latest
   to form an internationalized "user@domain" string similar to NFSv4 ID
   map strings.
+
+# Extending This Mechanism
+
+It is possible that in the future, RPC servers might implement other forms
+of RPC user identity, such as Windows Security Identifiers (SSIDs) {{SSID}}.
+This section describes how standards action can extend the mechanism
+specified in this document to accommodate new forms of user identity.
+
+{:aside}
+> Provide the base level of general requirements that we will have to
+  meet in this document as instructions to future authors. I'm not
+  sure yet exactly what those are.
 
 # Implementation Status
 
