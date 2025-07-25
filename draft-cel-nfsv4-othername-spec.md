@@ -142,14 +142,34 @@ As specified in {{Section 4.2.1.6 of !RFC5280}}:
 > indicated through the OBJECT IDENTIFIER in the type-id field.  The
 > name itself is conveyed as value field in otherName.
 
-## Requirement for otherName OID
+This document specifies new uses of the otherName field to carry an
+RPC user identity. The receiving system (an RPC server) then
+converts all RPC users (as carried in the RPC header credential and
+verifier fields) to the user identity specified in the certificate.
+
+## AUTH_SYS Identities
+
+### otherName OID for AUTH_SYS
 
 {:aside}
-> Summary of guidelines regarding use of x.509 SubjectAltName field.
-  Are there any requirements, and does this proposal follow those
-  requirements and guidelines?
+> State the Object Identifier to be used to indicate this form
+  of RPC user identity
 
-## Format of New otherName Blob
+### Format of the otherName Value
+
+{:aside}
+> This will be a set of 32-bit integers that specify the numeric
+  UID and up to 16 numeric GIDs.
+
+## User @ Domain String Identities
+
+### otherName OID for String Identities
+
+{:aside}
+> State the Object Identifier to be used to indicate this form
+  of RPC user identity
+
+### Format of the otherName Value
 
 {:aside}
 > Follow recommendations of draft-ietf-nfsv4-internationalization-latest
@@ -200,8 +220,8 @@ Maturity:
 : Complete.
 
 Coverage:
-: The proposed mechanism has been implemented in its
-  entirety using an OID from the FreeBSD arc.
+: The mechanism to represent user@domain strings has been implemented
+  using an OID from the FreeBSD arc.
 
 Licensing:
 : BSD 3-clause
@@ -214,7 +234,7 @@ Implementation experience:
 # IANA Considerations
 
 {:aside}
-> Insert request for allocation of a SubjectAltName : otherName object identifier
+> Insert request for allocations of a SubjectAltName : otherName object identifiers
 
 --- back
 
