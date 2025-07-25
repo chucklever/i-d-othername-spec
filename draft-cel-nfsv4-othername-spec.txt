@@ -77,8 +77,12 @@ Table of Contents
      1.4.  Open Questions
    2.  Requirements Language
    3.  x.509 Certificate SubjectAltName Field
-     3.1.  Requirement for otherName OID
-     3.2.  Format of New otherName Blob
+     3.1.  AUTH_SYS Identities
+       3.1.1.  otherName OID for AUTH_SYS
+       3.1.2.  Format of the otherName Value
+     3.2.  User @ Domain String Identities
+       3.2.1.  otherName OID for String Identities
+       3.2.2.  Format of the otherName Value
    4.  Extending This Mechanism
    5.  Implementation Status
      5.1.  FreeBSD NFS Server and Client
@@ -175,13 +179,31 @@ Table of Contents
       indicated through the OBJECT IDENTIFIER in the type-id field.  The
       name itself is conveyed as value field in otherName.
 
-3.1.  Requirement for otherName OID
+   This document specifies new uses of the otherName field to carry an
+   RPC user identity.  The receiving system (an RPC server) then
+   converts all RPC users (as carried in the RPC header credential and
+   verifier fields) to the user identity specified in the certificate.
 
-      |  Summary of guidelines regarding use of x.509 SubjectAltName
-      |  field.  Are there any requirements, and does this proposal
-      |  follow those requirements and guidelines?
+3.1.  AUTH_SYS Identities
 
-3.2.  Format of New otherName Blob
+3.1.1.  otherName OID for AUTH_SYS
+
+      |  State the Object Identifier to be used to indicate this form of
+      |  RPC user identity
+
+3.1.2.  Format of the otherName Value
+
+      |  This will be a set of 32-bit integers that specify the numeric
+      |  UID and up to 16 numeric GIDs.
+
+3.2.  User @ Domain String Identities
+
+3.2.1.  otherName OID for String Identities
+
+      |  State the Object Identifier to be used to indicate this form of
+      |  RPC user identity
+
+3.2.2.  Format of the otherName Value
 
       |  Follow recommendations of draft-ietf-nfsv4-
       |  internationalization-latest to form an internationalized
@@ -227,8 +249,8 @@ Table of Contents
 
    Maturity:  Complete.
 
-   Coverage:  The proposed mechanism has been implemented in its
-      entirety using an OID from the FreeBSD arc.
+   Coverage:  The mechanism to represent user@domain strings has been
+      implemented using an OID from the FreeBSD arc.
 
    Licensing:  BSD 3-clause
 
@@ -238,8 +260,8 @@ Table of Contents
 
 7.  IANA Considerations
 
-      |  Insert request for allocation of a SubjectAltName : otherName
-      |  object identifier
+      |  Insert request for allocations of a SubjectAltName : otherName
+      |  object identifiers
 
 8.  References
 
