@@ -158,10 +158,23 @@ verifier fields) to the user identity specified in the certificate.
 ### Format of the otherName Value
 
 {:aside}
-> This will be a set of 32-bit integers that specify the numeric
-  UID and up to 16 numeric GIDs.
+> This will be a set of 32-bit integers that specify a numeric UID,
+  and a counted list of 32-bit integers that specify numeric GIDs.
 
-## User @ Domain String Identities
+## Kerberos V5 Principals
+
+### otherName OID for AUTH_SYS
+
+{:aside}
+> State the Object Identifier to be used to indicate this form
+  of RPC user identity
+
+### Format of the otherName Value
+
+The otherName value contains a principal name as described in
+{{Section 4 of !RFC2743}}.
+
+## NFSv4 User @ Domain String Identities
 
 ### otherName OID for String Identities
 
