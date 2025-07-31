@@ -4,16 +4,16 @@
 
 This is the working area for the individual Internet-Draft, "Remote Procedure Call Identity Squashing via x.509 Certificate Fields".
 
-* [Editor's Copy](https://chucklever.github.io/i-d-othername-spec/#go.draft-cel-nfsv4-othername-spec.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-cel-nfsv4-othername-spec)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-cel-nfsv4-othername-spec)
-* [Compare Editor's Copy to Individual Draft](https://chucklever.github.io/i-d-othername-spec/#go.draft-cel-nfsv4-othername-spec.diff)
+* [Editor's Copy](https://chucklever.github.io/i-d-rpc-tls-othername/#go.draft-cel-nfsv4-rpc-tls-othername.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-cel-nfsv4-rpc-tls-othername)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-cel-nfsv4-rpc-tls-othername)
+* [Compare Editor's Copy to Individual Draft](https://chucklever.github.io/i-d-rpc-tls-othername/#go.draft-cel-nfsv4-rpc-tls-othername.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/chucklever/i-d-othername-spec/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/chucklever/i-d-rpc-tls-othername/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
