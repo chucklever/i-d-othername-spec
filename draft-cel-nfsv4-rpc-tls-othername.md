@@ -3,7 +3,7 @@ title: "Remote Procedure Call Identity Squashing via x.509 Certificate Fields"
 abbrev: "SunRPC x.509 Identity Squashing"
 category: std
 
-docname: draft-cel-nfsv4-othername-spec-latest
+docname: draft-cel-nfsv4-rpc-tls-othername-latest
 pi: [toc, sortrefs, symrefs, docmapping]
 stand_alone: yes
 v: 3
@@ -48,8 +48,8 @@ venue:
   type: Working Group
   mail: nfsv4@ietf.org
   arch: https://mailarchive.ietf.org/arch/browse/nfsv4/
-  repo: https://github.com/chucklever/i-d-othername-spec
-  latest: https://chucklever.github.io/i-d-othername-spec/#go.draft-cel-nfsv4-othername-spec.html
+  repo: https://github.com/chucklever/i-d-rpc-tls-othername
+  latest: https://chucklever.github.io/i-d-rpc-tls-othername/#go.draft-cel-nfsv4-rpc-tls-othername.html
 
 --- abstract
 
