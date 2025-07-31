@@ -80,9 +80,12 @@ Table of Contents
      3.1.  AUTH_SYS Identities
        3.1.1.  otherName OID for AUTH_SYS
        3.1.2.  Format of the otherName Value
-     3.2.  User @ Domain String Identities
-       3.2.1.  otherName OID for String Identities
+     3.2.  Kerberos V5 Principals
+       3.2.1.  otherName OID for AUTH_SYS
        3.2.2.  Format of the otherName Value
+     3.3.  NFSv4 User @ Domain String Identities
+       3.3.1.  otherName OID for String Identities
+       3.3.2.  Format of the otherName Value
    4.  Extending This Mechanism
    5.  Implementation Status
      5.1.  FreeBSD NFS Server and Client
@@ -193,17 +196,30 @@ Table of Contents
 
 3.1.2.  Format of the otherName Value
 
-      |  This will be a set of 32-bit integers that specify the numeric
-      |  UID and up to 16 numeric GIDs.
+      |  This will be a set of 32-bit integers that specify a numeric
+      |  UID, and a counted list of 32-bit integers that specify numeric
+      |  GIDs.
 
-3.2.  User @ Domain String Identities
+3.2.  Kerberos V5 Principals
 
-3.2.1.  otherName OID for String Identities
+3.2.1.  otherName OID for AUTH_SYS
 
       |  State the Object Identifier to be used to indicate this form of
       |  RPC user identity
 
 3.2.2.  Format of the otherName Value
+
+   The otherName value contains a principal name as described in
+   Section 4 of [RFC2743].
+
+3.3.  NFSv4 User @ Domain String Identities
+
+3.3.1.  otherName OID for String Identities
+
+      |  State the Object Identifier to be used to indicate this form of
+      |  RPC user identity
+
+3.3.2.  Format of the otherName Value
 
       |  Follow recommendations of draft-ietf-nfsv4-
       |  internationalization-latest to form an internationalized
@@ -271,6 +287,11 @@ Table of Contents
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC2743]  Linn, J., "Generic Security Service Application Program
+              Interface Version 2, Update 1", RFC 2743,
+              DOI 10.17487/RFC2743, January 2000,
+              <https://www.rfc-editor.org/rfc/rfc2743>.
 
    [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
               Housley, R., and W. Polk, "Internet X.509 Public Key

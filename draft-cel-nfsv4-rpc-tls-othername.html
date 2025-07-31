@@ -1196,13 +1196,24 @@ user identity.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-user-domain-string-identiti" class="internal xref">User @ Domain String Identities</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-kerberos-v5-principals" class="internal xref">Kerberos V5 Principals</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-othername-oid-for-string-id" class="internal xref">otherName OID for String Identities</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-othername-oid-for-auth_sys-2" class="internal xref">otherName OID for AUTH_SYS</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
                     <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-format-of-the-othername-valu" class="internal xref">Format of the otherName Value</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-nfsv4-user-domain-string-id" class="internal xref">NFSv4 User @ Domain String Identities</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-othername-oid-for-string-id" class="internal xref">otherName OID for String Identities</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
+                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-format-of-the-othername-value" class="internal xref">Format of the otherName Value</a></p>
 </li>
                 </ul>
 </li>
@@ -1391,22 +1402,22 @@ verifier fields) to the user identity specified in the certificate.<a href="#sec
 <a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-format-of-the-othername-val" class="section-name selfRef">Format of the otherName Value</a>
           </h4>
 <aside id="section-3.1.2-1">
-            <p id="section-3.1.2-1.1">This will be a set of 32-bit integers that specify the numeric
-  UID and up to 16 numeric GIDs.<a href="#section-3.1.2-1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.1.2-1.1">This will be a set of 32-bit integers that specify a numeric UID,
+  and a counted list of 32-bit integers that specify numeric GIDs.<a href="#section-3.1.2-1.1" class="pilcrow">¶</a></p>
 </aside>
 </section>
 </div>
 </section>
 </div>
-<div id="user-domain-string-identities">
+<div id="kerberos-v5-principals">
 <section id="section-3.2">
-        <h3 id="name-user-domain-string-identiti">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-user-domain-string-identiti" class="section-name selfRef">User @ Domain String Identities</a>
+        <h3 id="name-kerberos-v5-principals">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-kerberos-v5-principals" class="section-name selfRef">Kerberos V5 Principals</a>
         </h3>
-<div id="othername-oid-for-string-identities">
+<div id="othername-oid-for-authsys-1">
 <section id="section-3.2.1">
-          <h4 id="name-othername-oid-for-string-id">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-othername-oid-for-string-id" class="section-name selfRef">otherName OID for String Identities</a>
+          <h4 id="name-othername-oid-for-auth_sys-2">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-othername-oid-for-auth_sys-2" class="section-name selfRef">otherName OID for AUTH_SYS</a>
           </h4>
 <aside id="section-3.2.1-1">
             <p id="section-3.2.1-1.1">State the Object Identifier to be used to indicate this form
@@ -1419,10 +1430,37 @@ verifier fields) to the user identity specified in the certificate.<a href="#sec
           <h4 id="name-format-of-the-othername-valu">
 <a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-format-of-the-othername-valu" class="section-name selfRef">Format of the otherName Value</a>
           </h4>
-<aside id="section-3.2.2-1">
-            <p id="section-3.2.2-1.1">Follow recommendations of draft-ietf-nfsv4-internationalization-latest
+<p id="section-3.2.2-1">The otherName value contains a principal name as described in
+<span><a href="https://rfc-editor.org/rfc/rfc2743#section-4" class="relref">Section 4</a> of [<a href="#RFC2743" class="cite xref">RFC2743</a>]</span>.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="nfsv4-user-domain-string-identities">
+<section id="section-3.3">
+        <h3 id="name-nfsv4-user-domain-string-id">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-nfsv4-user-domain-string-id" class="section-name selfRef">NFSv4 User @ Domain String Identities</a>
+        </h3>
+<div id="othername-oid-for-string-identities">
+<section id="section-3.3.1">
+          <h4 id="name-othername-oid-for-string-id">
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-othername-oid-for-string-id" class="section-name selfRef">otherName OID for String Identities</a>
+          </h4>
+<aside id="section-3.3.1-1">
+            <p id="section-3.3.1-1.1">State the Object Identifier to be used to indicate this form
+  of RPC user identity<a href="#section-3.3.1-1.1" class="pilcrow">¶</a></p>
+</aside>
+</section>
+</div>
+<div id="format-of-the-othername-value-2">
+<section id="section-3.3.2">
+          <h4 id="name-format-of-the-othername-value">
+<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-format-of-the-othername-value" class="section-name selfRef">Format of the otherName Value</a>
+          </h4>
+<aside id="section-3.3.2-1">
+            <p id="section-3.3.2-1.1">Follow recommendations of draft-ietf-nfsv4-internationalization-latest
   to form an internationalized "user@domain" string similar to NFSv4 ID
-  map strings.<a href="#section-3.2.2-1.1" class="pilcrow">¶</a></p>
+  map strings.<a href="#section-3.3.2-1.1" class="pilcrow">¶</a></p>
 </aside>
 </section>
 </div>
@@ -1540,6 +1578,10 @@ using an OID from the FreeBSD arc.<a href="#section-5.1-1.8.1" class="pilcrow">�
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2743">[RFC2743]</dt>
+        <dd>
+<span class="refAuthor">Linn, J.</span>, <span class="refTitle">"Generic Security Service Application Program Interface Version 2, Update 1"</span>, <span class="seriesInfo">RFC 2743</span>, <span class="seriesInfo">DOI 10.17487/RFC2743</span>, <time datetime="2000-01" class="refDate">January 2000</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2743">https://www.rfc-editor.org/rfc/rfc2743</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5280">[RFC5280]</dt>
         <dd>
